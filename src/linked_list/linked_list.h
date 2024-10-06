@@ -2,11 +2,12 @@
 #define LINKED_LIST_LINKED_LIST_H_
 
 typedef struct Node {
-    int data;
+    int cod;
     struct Node* next;
 } Node;
 
-Node* createNode(int data);
+Node* createLinkedListNode(int cod);
+
 void insertAtBeginning(Node** head, int data);
 void printList(Node* head);
 
