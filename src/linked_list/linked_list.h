@@ -1,14 +1,14 @@
 #ifndef LINKED_LIST_LINKED_LIST_H_
 #define LINKED_LIST_LINKED_LIST_H_
 
-typedef struct Node {
+typedef struct NodeLinkedList {
     int cod;
-    struct Node* next;
-} Node;
+    struct NodeLinkedList* next;
+} NodeLinkedList;
 
-Node* createLinkedListNode(int cod);
+NodeLinkedList* createLinkedListNode(int cod);
 
-void insertAtBeginning(Node** head, int data);
-void printList(Node* head);
+void insertAtBeginning(NodeLinkedList** head, int data);
+void printList(NodeLinkedList* head);
 
 #endif
