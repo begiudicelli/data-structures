@@ -10,7 +10,8 @@ int main() {
 	tree = insertTreeNode(tree, 10);
 	tree = insertTreeNode(tree, 15);
 	tree = insertTreeNode(tree, 3);
-	printTree(tree);
+
+	printTree(searchTreeNode(tree, 10));
 
     return 0;
 }

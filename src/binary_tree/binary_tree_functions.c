@@ -11,27 +11,16 @@ TreeNode* createTreeNode(int cod){
 }
 
 TreeNode* insertTreeNode(TreeNode* root, int cod){
-	if(root == NULL){
-		root = createTreeNode(cod);
-	}else if(cod > root->cod){
-		root->right = insertTreeNode(root->right, cod);
-	}else{
-		root->left = insertTreeNode(root->left, cod);
-	}
+	if(root == NULL) root = createTreeNode(cod);
+	else if(cod > root->cod) root->right = insertTreeNode(root->right, cod);
+	else root->left = insertTreeNode(root->left, cod);
 	return root;
 }
 
 TreeNode* searchTreeNode(TreeNode* root, int cod){
-	if(root != NULL){
-		if(cod == root->cod){
-			printf("Encontrado!");
-		}else if(cod > root->cod){
-			root->right = searchTreeNode(root->right, cod);
-		}else{
-			root->left = searchTreeNode(root->left, cod);
-		}
-	}
-	return root;
+    if(root == NULL || root->cod == cod) return root;
+    if(cod > root->cod) return searchTreeNode(root->right, cod);
+    return searchTreeNode(root->left, cod);
 }
 
 void printTree(TreeNode* root){

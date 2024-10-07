@@ -1,8 +1,6 @@
 #ifndef BINARY_TREE_BINARY_TREE_H_
 #define BINARY_TREE_BINARY_TREE_H_
 
-#define COUNT 10
-
 typedef struct TreeNode {
     int cod;
     struct TreeNode* left;

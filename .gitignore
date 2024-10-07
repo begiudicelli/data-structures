@@ -1,0 +1,32 @@
+# Arquivos de compilação
+*.o
+*.out
+*.exe
+*.a
+*.so
+*.d
+
+# Diretórios de compilação
+/build/
+bin/
+obj/
+
+# Arquivos de configuração do sistema
+*.DS_Store
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Arquivos do editor
+*.vscode/
+*.idea/
+
+# Arquivos de dependência
+*.dep
+
+# Outros arquivos que podem ser gerados
+*.class
+*.exe
+*.dll
+*.pdb
