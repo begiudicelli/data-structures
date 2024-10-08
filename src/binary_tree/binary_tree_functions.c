@@ -23,6 +23,13 @@ TreeNode* searchTreeNode(TreeNode* root, int cod){
     return searchTreeNode(root->left, cod);
 }
 
+TreeNode* searchTreeNodeAndParent(TreeNode* root, int cod, TreeNode** parent){
+    if(root == NULL || root->cod == cod) return root;
+    *parent = root;
+    if(cod > root->cod) return searchTreeNodeAndParent(root->right, cod, parent);
+    return searchTreeNodeAndParent(root->left, cod, parent);
+}
+
 void printTree(TreeNode* root){
 	if(root != NULL){
 		printf("\nAtual %p - Código %d - Esquerda %p - Direita - %p",

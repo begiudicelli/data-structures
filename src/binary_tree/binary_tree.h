@@ -9,6 +9,7 @@ typedef struct TreeNode {
 
 TreeNode* createTreeNode(int cod);
 TreeNode* searchTreeNode(TreeNode* root, int cod);
+TreeNode* searchTreeNodeAndParent(TreeNode* root, int cod, TreeNode** parent);
 TreeNode* insertTreeNode(TreeNode* root, int cod);
 void printTree(TreeNode* root);
 
