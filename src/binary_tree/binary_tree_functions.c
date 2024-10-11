@@ -30,6 +30,34 @@ TreeNode* searchTreeNodeAndParent(TreeNode* root, int cod, TreeNode** parent){
     return searchTreeNodeAndParent(root->left, cod, parent);
 }
 
+TreeNode* deleteTreeNode(TreeNode* root, int cod){
+	TreeNode* parent = NULL;
+	TreeNode* delete = searchTreeNodeAndParent(root, cod, &parent);
+
+	TreeNode* tmp = NULL;
+	TreeNode* tmpParent = NULL;
+
+	if(delete != NULL){
+		if(delete->right == NULL){
+			tmp = delete->left;
+		}else if(delete->left == NULL){
+			tmp = delete->right;
+		}
+
+		if(parent != NULL){
+			if(delete-> cod > parent->cod){
+				parent->right = tmp;
+			}else{
+				parent->left = tmp;
+			}
+		}else{
+			root = tmp;
+		}
+		free(delete);
+	}
+	return root;
+}
+
 void printTree(TreeNode* root){
 	if(root != NULL){
 		printf("\nAtual %p - Código %d - Esquerda %p - Direita - %p",

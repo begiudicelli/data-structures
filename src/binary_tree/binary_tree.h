@@ -12,5 +12,6 @@ TreeNode* searchTreeNode(TreeNode* root, int cod);
 TreeNode* searchTreeNodeAndParent(TreeNode* root, int cod, TreeNode** parent);
 TreeNode* insertTreeNode(TreeNode* root, int cod);
 void printTree(TreeNode* root);
+TreeNode* deleteTreeNode(TreeNode* root, int cod);
 
 #endif
