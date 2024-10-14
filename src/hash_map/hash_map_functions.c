@@ -41,19 +41,19 @@ void displayTable(HashNode** hashtable) {
         if (current != NULL) {
             displayNode(current);
             printf("\n");
-        } else {
-        	printf("NULL\n");
-        }
+        } else printf("NULL\n");
     }
 }
 
 void searchHashNode(HashNode** hashtable, char *str){
 	int index = hash(str);
 	HashNode* current = hashtable[index];
-
 	while(current != NULL){
 		if(strcmp(str, current->data) == 0){
-			printf("Found!");
+			printf("Nome encontrado.\n");
+			printf("Nome: %s\n", current->data);
+			printf("Indice hash: %d\n", index);
+			printf("Endereco do nome: %p\n", (void*)current);
 			return;
 		}
 		current = current->next;

@@ -5,7 +5,8 @@
 #include "hash_map/hash_map.h"
 
 int main() {
-	showHashMenu();
+	//showHashMenu();
+	showTreeMenu();
     return 0;
 
 }

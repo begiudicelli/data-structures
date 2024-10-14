@@ -58,6 +58,10 @@ TreeNode* deleteTreeNode(TreeNode* root, int cod){
 	return root;
 }
 
+void printTreeNode(TreeNode* root){
+	root != NULL ? printf("Valor encontrado: %d", root->cod) :printf("Valor não encontrado.\n");
+}
+
 void printTree(TreeNode* root){
 	if(root != NULL){
 		printf("\nAtual %p - Código %d - Esquerda %p - Direita - %p",
@@ -65,5 +69,45 @@ void printTree(TreeNode* root){
 		printTree(root->left);
 		printTree(root->right);
 	}
+}
+
+void showTreeMenu(){
+    setvbuf(stdout, NULL, _IONBF, 0);
+
+    TreeNode* tree = NULL;
+    TreeNode* searchNode = NULL;
+    char opt;
+    int value;
+    do {
+        printf("\nMenu Principal: \n");
+        printf("A - Inserir elemento\n");
+        printf("B - Pesquisar elemento\n");
+        printf("C - Imprimir\n");
+        printf("D - Inserir em massa\n");
+        printf("E - Finalizar\n");
+        printf("Escolha uma opcao: ");
+        scanf(" %c", &opt);
+
+        switch (opt) {
+        case 'A':
+        	printf("Digite o valor do elemento a ser inserido: ");
+        	scanf("%d", &value);
+        	tree = insertTreeNode(tree, value);
+            break;
+        case 'B':
+        	printf("Digite o valor do elemento a ser pesquisado: ");
+        	scanf("%d", &value);
+        	searchNode = searchTreeNode(tree, value);
+        	printTreeNode(searchNode);
+            break;
+        case 'C':
+            break;
+        case 'D':
+            break;
+        default:
+            printf("Opcao invalida.\n");
+            break;
+        }
+    } while (opt != 'E');
 }
 
