@@ -7,7 +7,6 @@ typedef struct NodeLinkedList {
 } NodeLinkedList;
 
 NodeLinkedList* createLinkedListNode(int cod);
-
 void insertAtBeginning(NodeLinkedList** head, int data);
 void printList(NodeLinkedList* head);
 
