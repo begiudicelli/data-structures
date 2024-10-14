@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "stack.h"
 
 StackNode* pushStackNode(StackNode* head, int cod){
@@ -9,8 +7,24 @@ StackNode* pushStackNode(StackNode* head, int cod){
 	return newStackNode;
 }
 
-bool popStackNode(){
+bool popStackNode(StackNode** head){
+	if(*head == NULL){
+		printf("Stack vazia.\n");
+		return false;
+	}else{
+		StackNode* tmp = *head;
+		*head = (*head)->next;
+		free(tmp);
+		return true;
+	}
+}
 
+void stackMassInsertion(StackNode** stack, int amount){
+	for(int i = 0; i < amount; i++){
+		int value =  rand() % 100;
+		*stack = pushStackNode(*stack, value);
+	}
+	printf("%d valores inseridos com sucesso.\n", amount);
 }
 
 void printStack(StackNode* head){
@@ -19,21 +33,23 @@ void printStack(StackNode* head){
         printf("%d -> ", current->cod);
         current = current->next;
 	}
-	printf("NULL");
+	printf("NULL\n");
 }
 
 void displayStackMenu(){
 	setvbuf(stdout, NULL, _IONBF, 0);
+	srand(time(NULL));
 	char opt;
-	int value;
+	int value, amount;
 
 	StackNode* stack = NULL;
 	do{
         printf("\nMenu Principal: \n");
         printf("A - Push Pilha\n");
         printf("B - Pop Pilha\n");
-        printf("C - Imprimir Pilha\n");
-        printf("D-  Finalizar\n");
+        printf("C - Push em massa\n");
+        printf("D - Imprimir Pilha\n");
+        printf("E-  Finalizar\n");
         printf("Escolha uma opcao: ");
         scanf(" %c", &opt);
 
@@ -44,11 +60,17 @@ void displayStackMenu(){
 			stack = pushStackNode(stack, value);
 			break;
 		case 'B' :
+			popStackNode(&stack);
 			break;
 		case 'C' :
-			printStack(stack);
+			printf("Digite a quantidade de valores a serem inseridos na stack: ");
+			scanf("%d", &amount);
+			stackMassInsertion(&stack, amount);
 			break;
 		case 'D' :
+			printStack(stack);
+			break;
+		case 'E':
 			printf("\nPrograma finalizado.");
 			break;
 		default:
@@ -56,6 +78,6 @@ void displayStackMenu(){
 			break;
 		}
 
-	} while (opt != 'D');
+	} while (opt != 'E');
 }
 
