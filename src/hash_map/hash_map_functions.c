@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdbool.h>
 #include "hash_map.h"
 
-HashNode** getHashTable(){
+HashNode** getHashtable(){
 	HashNode** hashtable = calloc(HASHTABLE_SIZE, sizeof(HashNode*));
 	return hashtable;
 }
@@ -12,10 +13,7 @@ HashNode** getHashTable(){
 unsigned int hash(char *str){
     unsigned long hash = 5381;
     int c;
-
-    while ((c = *str++))
-        hash = ((hash << 5) + hash) + c;
-
+    while ((c = *str++)) hash = ((hash << 5) + hash) + c;
     return hash % HASHTABLE_SIZE;
 }
 
@@ -49,11 +47,25 @@ void displayTable(HashNode** hashtable) {
     }
 }
 
+void searchHashNode(HashNode** hashtable, char *str){
+	int index = hash(str);
+	HashNode* current = hashtable[index];
+
+	while(current != NULL){
+		if(strcmp(str, current->data) == 0){
+			printf("Found!");
+			return;
+		}
+		current = current->next;
+	}
+	printf("Not found!");
+}
+
 void showHashMenu(){
     setvbuf(stdout, NULL, _IONBF, 0);
     srand(time(NULL));
 
-    HashNode **table = getHashTable();
+    HashNode **table = getHashtable();
     char opt;
     char str[MAX_DATA];
     do {
@@ -73,6 +85,9 @@ void showHashMenu(){
             insertIntoTable(table, str);
             break;
         case 'B':
+        	printf("Digite o nome para ser pesquisado: ");
+        	scanf(" %[^\n]", str);
+        	searchHashNode(table, str);
             break;
         case 'C':
             displayTable(table);
