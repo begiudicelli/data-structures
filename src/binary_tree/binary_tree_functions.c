@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "binary_tree.h"
 
 TreeNode* createTreeNode(int cod){
@@ -17,6 +18,13 @@ TreeNode* insertTreeNode(TreeNode* root, int cod){
 	return root;
 }
 
+void massInsertion(TreeNode** root, int amount){
+	for(int i = 0; i < amount; i++){
+		int value = rand() % 100;
+		*root = insertTreeNode(*root, value);
+	}
+	printf("%d valores inseridos com sucesso.\n", amount);
+}
 TreeNode* searchTreeNode(TreeNode* root, int cod){
     if(root == NULL || root->cod == cod) return root;
     if(cod > root->cod) return searchTreeNode(root->right, cod);
@@ -59,7 +67,7 @@ TreeNode* deleteTreeNode(TreeNode* root, int cod){
 }
 
 void printTreeNode(TreeNode* root){
-	root != NULL ? printf("Valor encontrado: %d", root->cod) :printf("Valor não encontrado.\n");
+	root != NULL ? printf("Valor encontrado: %d", root->cod) : printf("Valor não encontrado.\n");
 }
 
 void printTree(TreeNode* root){
@@ -77,7 +85,7 @@ void showTreeMenu(){
     TreeNode* tree = NULL;
     TreeNode* searchNode = NULL;
     char opt;
-    int value;
+    int value, amount;
     do {
         printf("\nMenu Principal: \n");
         printf("A - Inserir elemento\n");
@@ -101,8 +109,12 @@ void showTreeMenu(){
         	printTreeNode(searchNode);
             break;
         case 'C':
+        	printTree(tree);
             break;
         case 'D':
+        	printf("Digite o numero de valores a serem inseridos: ");
+        	scanf("%d", &amount);
+        	massInsertion(&tree, amount);
             break;
         default:
             printf("Opcao invalida.\n");
