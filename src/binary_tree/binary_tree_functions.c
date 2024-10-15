@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include "binary_tree.h"
 
 TreeNode* createTreeNode(int cod){
@@ -79,7 +76,7 @@ void printTree(TreeNode* root){
 	}
 }
 
-void showTreeMenu(){
+void displayTreeMenu(){
     setvbuf(stdout, NULL, _IONBF, 0);
 
     TreeNode* tree = NULL;

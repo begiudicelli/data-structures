@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <stdbool.h>
 #include "hash_map.h"
 
 HashNode** getHashtable(){
@@ -61,7 +56,7 @@ void searchHashNode(HashNode** hashtable, char *str){
 	printf("Not found!");
 }
 
-void showHashMenu(){
+void displayHashMenu(){
     setvbuf(stdout, NULL, _IONBF, 0);
     srand(time(NULL));
 

@@ -4,11 +4,13 @@
 #include "binary_tree/binary_tree.h"
 #include "hash_map/hash_map.h"
 #include "stack/stack.h"
+#include "queue/queue.h"
 
 int main() {
-	//showHashMenu();
+	//displayHashMenu();
 	//showTreeMenu();
-	displayStackMenu();
+	//displayStackMenu();
+	displayQueueMenu();
     return 0;
 
 }
