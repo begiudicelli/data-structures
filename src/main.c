@@ -5,12 +5,17 @@
 #include "hash_map/hash_map.h"
 #include "stack/stack.h"
 #include "queue/queue.h"
+#include "sparse_matrix/sparse.h"
 
 int main() {
 	//displayHashMenu();
 	//showTreeMenu();
 	//displayStackMenu();
-	displayQueueMenu();
-    return 0;
+	//displayQueueMenu();
+	displaySparseMatrixMenu();
+
+	return 0;
 
 }
+
+
