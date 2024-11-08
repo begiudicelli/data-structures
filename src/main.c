@@ -6,13 +6,15 @@
 #include "stack/stack.h"
 #include "queue/queue.h"
 #include "sparse_matrix/sparse.h"
+#include "graph/graph.h"
 
 int main() {
 	//displayHashMenu();
 	//showTreeMenu();
 	//displayStackMenu();
 	//displayQueueMenu();
-	displaySparseMatrixMenu();
+	//displaySparseMatrixMenu();
+	displayGraphMenu();
 
 	return 0;
 

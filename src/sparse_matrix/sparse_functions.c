@@ -110,8 +110,7 @@ void displaySparseMatrixMenu() {
 
 		switch (opt) {
 		case 'A':
-			printf(
-					"Digite o numero da linha e da coluna do elemento a ser inserido: ");
+			printf("Digite o numero da linha e da coluna do elemento a ser inserido: ");
 			scanf("%d %d", &lin, &col);
 			printf("Digite o valor do elemento a ser inserido: ");
 			scanf("%d", &value);
@@ -135,7 +134,7 @@ void displaySparseMatrixMenu() {
 		case 'D':
 			printf("Digite o numero de valores a serem inseridos: ");
 			scanf("%d", &amount);
-			massInsertion(&m, amount);
+			//massInsertion(&m, amount);
 			break;
 
 		default:
@@ -144,7 +143,6 @@ void displaySparseMatrixMenu() {
 		}
 	} while (opt != 'E');
 
-	// Option to free memory or clean up, if needed
 	destroyMatrix(&m);
 }
 
