@@ -61,12 +61,55 @@ void printAdjacencia(Graph* g) {
     }
 }
 
-void printIncidencia(Graph* g) {
-    printf("\nLista de Incidência:\n");
-    for (int i = 0; i < g->numArestas; i++) {
-        printf("Aresta %d: %d - %d\n", i + 1, g->incidencia[i][0], g->incidencia[i][1]);
+void printMatrizAdjacencia(Graph* g) {
+    printf("\nMatriz Adjacente:\n");
+    printf("     ");
+    for (int i = 0; i < g->numVertices; i++) {
+        printf("v%d ", i);
+    }
+    printf("\n");
+
+    for (int i = 0; i < g->numVertices; i++) {
+        printf("v%d ", i);
+        for (int j = 0; j < g->numVertices; j++) {
+            GraphNode* temp = g->adjacencia[i];
+            int found = 0;
+            while (temp != NULL) {
+                if (temp->vertice == j) {
+                    found = 1;
+                    break;
+                }
+                temp = temp->prox;
+            }
+            printf("%3d", found);
+        }
+        printf("\n");
     }
 }
+
+void printMatrizIncidencia(Graph* g) {
+    printf("\nMatriz Incidente:\n");
+    printf("     ");
+    for (int i = 0; i < g->numArestas; i++) {
+        printf("a%d ", i);
+    }
+    printf("\n");
+
+    for (int i = 0; i < g->numVertices; i++) {
+        printf("v%d ", i);
+        for (int j = 0; j < g->numArestas; j++) {
+            int u = g->incidencia[j][0];
+            int v = g->incidencia[j][1];
+            if (u == i || v == i) {
+                printf("%3d", 1);
+            } else {
+                printf("%3d", 0);
+            }
+        }
+        printf("\n");
+    }
+}
+
 
 void calculateDegree(Graph* g) {
     printf("\nGrau de cada vertice:\n");
@@ -132,11 +175,11 @@ void displayGraphMenu() {
                 else printf("Grafo não inicializado.\n");
                 break;
             case 'C':
-                if (g != NULL) printAdjacencia(g);
+                if (g != NULL) printMatrizAdjacencia(g);
                 else printf("Grafo não inicializado.\n");
                 break;
             case 'D':
-                if (g != NULL) printIncidencia(g);
+                if (g != NULL) printMatrizIncidencia(g);
                 else printf("Grafo não inicializado.\n");
                 break;
             case 'E':
